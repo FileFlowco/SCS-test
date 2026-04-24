@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>About | Soft Cleaning Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--green:#2FB550;--green-dark:#1e8a38;--green-light:#edfaf2;--navy:#0d1b2a;--gray-50:#f8f9fa;--gray-100:#f1f3f5;--gray-200:#e9ecef;--gray-400:#adb5bd;--gray-600:#6c757d;--gray-800:#343a40;--white:#fff;--r:12px;--r-lg:20px;--sh:0 2px 16px rgba(0,0,0,.08);--sh-lg:0 8px 40px rgba(0,0,0,.14);--max:1200px;--nav-h:72px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--white);color:var(--navy);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    .wrap{width:min(var(--max),100% - 40px);margin-inline:auto}
+    header{position:sticky;top:0;z-index:200;height:var(--nav-h);background:var(--white);border-bottom:1px solid var(--gray-200);display:flex;align-items:center}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{height:38px;width:auto}
+    .brand-name{font-size:17px;font-weight:800;letter-spacing:-.3px}
+    .brand-name em{color:var(--green);font-style:normal}
+    nav.links{display:flex;gap:2px}
+    nav.links a{font-size:14px;font-weight:500;color:var(--gray-600);padding:8px 14px;border-radius:8px;transition:color .15s,background .15s}
+    nav.links a:hover,nav.links a.active{color:var(--navy);background:var(--gray-100)}
+    .nav-cta{background:var(--green);color:#fff;padding:10px 22px;border-radius:8px;font-weight:700;font-size:14px;transition:background .15s,transform .15s;white-space:nowrap}
+    .nav-cta:hover{background:var(--green-dark);transform:translateY(-1px)}
+    .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:none}
+    .ham span{display:block;height:2px;width:22px;background:var(--navy);border-radius:2px;transition:.3s}
+    .ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .ham.open span:nth-child(2){opacity:0}
+    .ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-nav{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--white);border-bottom:1px solid var(--gray-200);padding:16px 20px 24px;z-index:199;flex-direction:column;gap:4px;box-shadow:var(--sh-lg)}
+    .mobile-nav.open{display:flex}
+    .mobile-nav a{font-size:16px;font-weight:600;padding:13px 16px;border-radius:10px;color:var(--gray-800)}
+    .mobile-nav a:hover,.mobile-nav a.active{background:var(--gray-100);color:var(--navy)}
+    .mobile-nav .m-cta{margin-top:8px;background:var(--green);color:#fff;text-align:center;border-radius:10px;padding:14px;font-weight:700;font-size:15px}
+    .page-hero{background:var(--navy);color:#fff;padding:64px 0;text-align:center}
+    .page-hero h1{font-size:clamp(30px,4vw,48px);font-weight:800;letter-spacing:-.4px;margin-bottom:12px}
+    .page-hero p{color:rgba(255,255,255,.6);font-size:16px;max-width:44ch;margin:0 auto}
+    .section{padding:80px 0}
+    .sec-label{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+    .sec-label::before{content:'';width:18px;height:2px;background:var(--green);border-radius:999px}
+    h2.sec-title{font-size:clamp(26px,3.5vw,40px);font-weight:800;letter-spacing:-.4px;line-height:1.1;margin-bottom:14px}
+    .sec-sub{font-size:15.5px;color:var(--gray-600);line-height:1.75;max-width:52ch;margin-bottom:48px}
+    /* story */
+    .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .story-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-lg)}
+    .story-img img{width:100%;height:480px;object-fit:cover;object-position:center top;display:block}
+    .story-text h2{font-size:clamp(26px,3vw,38px);font-weight:800;letter-spacing:-.3px;line-height:1.1;margin-bottom:16px}
+    .story-text p{font-size:15px;color:var(--gray-600);line-height:1.8;margin-bottom:16px}
+    /* values */
+    .values-bg{background:var(--gray-50);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+    .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .value-card{background:var(--white);border:1.5px solid var(--gray-200);border-radius:var(--r-lg);padding:32px 28px;box-shadow:var(--sh);transition:border-color .2s,transform .2s}
+    .value-card:hover{border-color:var(--green);transform:translateY(-3px)}
+    .v-icon{width:52px;height:52px;border-radius:14px;background:var(--green-light);display:grid;place-items:center;font-size:24px;margin-bottom:18px}
+    .value-card h3{font-size:17px;font-weight:800;margin-bottom:8px;letter-spacing:-.2px}
+    .value-card p{font-size:14px;color:var(--gray-600);line-height:1.65}
+    /* stats */
+    .stats-section{background:var(--navy);color:#fff;padding:72px 0}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center}
+    .stat-item{padding:32px 24px;border-right:1px solid rgba(255,255,255,.08)}
+    .stat-item:last-child{border-right:none}
+    .stat-num{font-size:44px;font-weight:800;color:#fff;letter-spacing:-.5px;margin-bottom:6px}
+    .stat-num span{color:var(--green)}
+    .stat-lbl{font-size:14px;color:rgba(255,255,255,.5)}
+    /* team */
+    .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:640px}
+    .team-card{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-lg);position:relative}
+    .team-card img{width:100%;height:360px;object-fit:cover;object-position:center top;display:block}
+    .team-overlay{position:absolute;inset:auto 0 0 0;background:linear-gradient(to top,rgba(13,27,42,.85),transparent);padding:20px 20px 18px}
+    .team-name{font-size:16px;font-weight:800;color:#fff}
+    .team-role{font-size:13px;color:rgba(255,255,255,.6)}
+    /* gallery strip */
+    .gallery-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .gallery-strip img{width:100%;height:200px;object-fit:cover;border-radius:var(--r);box-shadow:var(--sh)}
+    /* cta */
+    .cta-banner{background:var(--green);color:#fff;padding:72px 0}
+    .cta-inner{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+    .cta-inner h2{font-size:clamp(24px,3vw,38px);font-weight:800;letter-spacing:-.3px;margin-bottom:8px}
+    .cta-inner p{opacity:.85;font-size:15px;max-width:44ch;line-height:1.65}
+    .btn-white{background:#fff;color:var(--green);padding:15px 30px;border-radius:10px;font-weight:800;font-size:15px;white-space:nowrap;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 20px rgba(0,0,0,.15);display:inline-block}
+    .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
+    footer{background:var(--navy);color:rgba(255,255,255,.6);padding:40px 0 28px}
+    .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px}
+    .foot-powered{opacity:.35}.foot-powered a{color:inherit}
+    .ig-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.45);transition:border-color .2s,color .2s}
+    .ig-btn:hover{border-color:rgba(255,255,255,.5);color:#fff}
+    @media(max-width:900px){nav.links,.nav-cta{display:none}.ham{display:flex}.story-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}.stat-item:nth-child(2){border-right:none}.values-grid{grid-template-columns:1fr 1fr}.team-grid{grid-template-columns:1fr 1fr;max-width:100%}.gallery-strip{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.wrap{width:calc(100% - 32px)}.section{padding:56px 0}.values-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}.story-img img{height:280px}.cta-inner{flex-direction:column;text-align:center}.btn-white{width:100%;text-align:center}.foot-bottom{flex-direction:column;text-align:center}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img src="assets/logo.png" alt="Soft Cleaning Services"/><span class="brand-name">Soft<em>Cleaning</em></span></a>
+    <nav class="links">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html" class="active">About</a><a href="contact.html">Contact</a>
+    </nav>
+    <a class="nav-cta" href="contact.html">Get a Free Quote</a>
+    <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html" class="active">About</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="m-cta">Get a Free Quote</a>
+</div>
+
+<main>
+  <div class="page-hero">
+    <div class="wrap">
+      <h1>About Us</h1>
+      <p>A Jacksonville cleaning company built on trust, detail, and results you can actually see.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap story-grid">
+      <div class="story-img">
+        <img src="assets/pablo/PHOTO-2026-02-20-14-44-59.jpg" alt="Soft Cleaning Services team"/>
+      </div>
+      <div class="story-text">
+        <div class="sec-label">Our Story</div>
+        <h2>We clean like it's our own home.</h2>
+        <p>Soft Cleaning Services was built on one idea: every client deserves a service that actually shows up, follows through, and delivers results worth paying for.</p>
+        <p>We're a local Jacksonville team that takes pride in the details — the grout lines, the mirror edges, the inside of the fridge. The spots most cleaners skip. We don't skip them.</p>
+        <p>Every job follows the same structured checklist. You get the same level of quality whether it's your first booking or your fiftieth.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section values-bg">
+    <div class="wrap">
+      <div class="sec-label">What We Stand For</div>
+      <h2 class="sec-title">Our values drive every job.</h2>
+      <p class="sec-sub">Three things we never compromise on.</p>
+      <div class="values-grid">
+        <div class="value-card"><div class="v-icon">🎯</div><h3>Detail-First</h3><p>We clean what other services skip. Baseboards, vents, behind appliances, grout — all of it, every time.</p></div>
+        <div class="value-card"><div class="v-icon">🔄</div><h3>Consistency</h3><p>Same checklist, same standard, every visit. You'll never wonder whether today will be a good day or a bad one.</p></div>
+        <div class="value-card"><div class="v-icon">🤝</div><h3>Trust</h3><p>We treat your home with respect. If anything wasn't right, we come back and fix it — no questions asked.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-section">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">5<span>★</span></div><div class="stat-lbl">Average Rating</div></div>
+        <div class="stat-item"><div class="stat-num">100<span>%</span></div><div class="stat-lbl">Satisfaction Guarantee</div></div>
+        <div class="stat-item"><div class="stat-num">Same<span>-Day</span></div><div class="stat-lbl">Response Time</div></div>
+        <div class="stat-item"><div class="stat-num">JAX<span>+</span></div><div class="stat-lbl">Jacksonville & Surrounding</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-label">The Team</div>
+      <h2 class="sec-title">The people behind the results.</h2>
+      <p class="sec-sub" style="margin-bottom:40px">Professional, respectful, and detail-obsessed — every visit.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="assets/pablo/PHOTO-2026-02-20-14-44-59.jpg" alt="Team member"/>
+          <div class="team-overlay"><div class="team-name">Cleaning Professional</div><div class="team-role">Soft Cleaning Services</div></div>
+        </div>
+        <div class="team-card">
+          <img src="assets/pablo/PHOTO-2026-02-20-14-42-51.jpg" alt="Team member"/>
+          <div class="team-overlay"><div class="team-name">Cleaning Professional</div><div class="team-role">Soft Cleaning Services</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--gray-50);border-top:1px solid var(--gray-200)">
+    <div class="wrap">
+      <div class="sec-label">Our Work</div>
+      <h2 class="sec-title">Results that prove it.</h2>
+      <p class="sec-sub" style="margin-bottom:36px">Every photo is a real job, a real space, a real transformation.</p>
+      <div class="gallery-strip">
+        <img src="assets/pablo/PHOTO-2026-04-01-19-14-15 2.jpg" alt="After clean" style="object-position:center 30%"/>
+        <img src="assets/pablo/PHOTO-2026-04-01-19-11-25 2.jpg" alt="Fridge after" style="object-position:center 40%"/>
+        <img src="assets/pablo/PHOTO-2026-02-19-16-04-29 2.jpg" alt="Bathtub after" style="object-position:center 30%"/>
+        <img src="assets/pablo/PHOTO-2026-04-01-19-13-53 2.jpg" alt="Marble shower" style="object-position:center top"/>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="wrap cta-inner">
+      <div><h2>Ready to work with us?</h2><p>Send us your details and we'll get back to you within hours with a free quote.</p></div>
+      <a href="contact.html" class="btn-white">Get a Free Quote →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Soft Cleaning Services &nbsp;·&nbsp; <span class="foot-powered">Powered by <a href="https://fileflowco.com" target="_blank" rel="noopener">FileFlow</a></span></span>
+    <a href="https://www.instagram.com/softcleaningfl" target="_blank" rel="noopener" class="ig-btn" aria-label="Instagram">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+    </a>
+  </div>
+</footer>
+<script>
+  const ham=document.getElementById('ham'),mn=document.getElementById('mobileNav');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');mn.classList.toggle('open')});
+</script>
+</body>
+</html>

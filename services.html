@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Services | Soft Cleaning Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--green:#2FB550;--green-dark:#1e8a38;--green-light:#edfaf2;--navy:#0d1b2a;--gray-50:#f8f9fa;--gray-100:#f1f3f5;--gray-200:#e9ecef;--gray-400:#adb5bd;--gray-600:#6c757d;--gray-800:#343a40;--white:#fff;--r:12px;--r-lg:20px;--sh:0 2px 16px rgba(0,0,0,.08);--sh-lg:0 8px 40px rgba(0,0,0,.14);--max:1200px;--nav-h:72px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--white);color:var(--navy);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    img,video{display:block;max-width:100%}
+    .wrap{width:min(var(--max),100% - 40px);margin-inline:auto}
+    header{position:sticky;top:0;z-index:200;height:var(--nav-h);background:var(--white);border-bottom:1px solid var(--gray-200);display:flex;align-items:center}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{height:38px;width:auto}
+    .brand-name{font-size:17px;font-weight:800;letter-spacing:-.3px}
+    .brand-name em{color:var(--green);font-style:normal}
+    nav.links{display:flex;gap:2px}
+    nav.links a{font-size:14px;font-weight:500;color:var(--gray-600);padding:8px 14px;border-radius:8px;transition:color .15s,background .15s}
+    nav.links a:hover,nav.links a.active{color:var(--navy);background:var(--gray-100)}
+    .nav-cta{background:var(--green);color:#fff;padding:10px 22px;border-radius:8px;font-weight:700;font-size:14px;transition:background .15s,transform .15s;white-space:nowrap}
+    .nav-cta:hover{background:var(--green-dark);transform:translateY(-1px)}
+    .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:none}
+    .ham span{display:block;height:2px;width:22px;background:var(--navy);border-radius:2px;transition:.3s}
+    .ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .ham.open span:nth-child(2){opacity:0}
+    .ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-nav{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--white);border-bottom:1px solid var(--gray-200);padding:16px 20px 24px;z-index:199;flex-direction:column;gap:4px;box-shadow:var(--sh-lg)}
+    .mobile-nav.open{display:flex}
+    .mobile-nav a{font-size:16px;font-weight:600;padding:13px 16px;border-radius:10px;color:var(--gray-800)}
+    .mobile-nav a:hover,.mobile-nav a.active{background:var(--gray-100);color:var(--navy)}
+    .mobile-nav .m-cta{margin-top:8px;background:var(--green);color:#fff;text-align:center;border-radius:10px;padding:14px;font-weight:700;font-size:15px}
+    .page-hero{background:var(--navy);color:#fff;padding:64px 0;text-align:center}
+    .page-hero h1{font-size:clamp(30px,4vw,48px);font-weight:800;letter-spacing:-.4px;margin-bottom:12px}
+    .page-hero p{color:rgba(255,255,255,.6);font-size:16px;max-width:46ch;margin:0 auto}
+    .section{padding:80px 0}
+    .sec-label{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+    .sec-label::before{content:'';width:18px;height:2px;background:var(--green);border-radius:999px}
+    h2.sec-title{font-size:clamp(26px,3.5vw,40px);font-weight:800;letter-spacing:-.4px;line-height:1.1;margin-bottom:14px}
+    .sec-sub{font-size:15.5px;color:var(--gray-600);line-height:1.75;max-width:52ch;margin-bottom:52px}
+    /* Service rows */
+    .svc-row{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-lg);margin-bottom:40px;border:1px solid var(--gray-200)}
+    .svc-row.flip{direction:rtl}
+    .svc-row.flip>*{direction:ltr}
+    .svc-photo{position:relative;min-height:340px}
+    .svc-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .svc-body{background:var(--white);padding:48px 44px;display:flex;flex-direction:column;justify-content:center}
+    .svc-tag{display:inline-flex;align-items:center;gap:6px;background:var(--green-light);color:var(--green);padding:5px 12px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;width:fit-content}
+    .svc-body h3{font-size:clamp(22px,2.5vw,30px);font-weight:800;letter-spacing:-.3px;margin-bottom:12px}
+    .svc-body p{font-size:15px;color:var(--gray-600);line-height:1.75;margin-bottom:20px}
+    .svc-includes{list-style:none;display:grid;gap:8px;margin-bottom:28px}
+    .svc-includes li{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500}
+    .svc-includes li::before{content:'✓';width:20px;height:20px;border-radius:6px;background:var(--green-light);color:var(--green);display:grid;place-items:center;font-size:11px;font-weight:800;flex-shrink:0}
+    .btn-green{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#fff;padding:13px 24px;border-radius:10px;font-weight:700;font-size:14.5px;transition:background .15s,transform .15s}
+    .btn-green:hover{background:var(--green-dark);transform:translateY(-1px)}
+    /* Video section */
+    .vid-bg{background:#080f0a}
+    .vid-stage{position:relative;border-radius:var(--r-lg);overflow:hidden;background:#000;box-shadow:0 24px 80px rgba(0,0,0,.6);aspect-ratio:16/9;max-width:880px;margin:0 auto 18px}
+    .vid-stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s;pointer-events:none}
+    .vid-stage video.active{opacity:1}
+    .vid-bars{display:flex;gap:8px;justify-content:center;max-width:880px;margin:0 auto}
+    .vid-bar{flex:1;max-width:110px;height:3px;background:rgba(255,255,255,.15);border-radius:999px;overflow:hidden;cursor:pointer}
+    .vid-bar-fill{height:100%;background:var(--green);width:0%;border-radius:999px}
+    .vid-bar.active .vid-bar-fill{animation:vfill var(--d,5s) linear forwards}
+    @keyframes vfill{from{width:0%}to{width:100%}}
+    /* CTA */
+    .cta-banner{background:var(--green);color:#fff;padding:72px 0}
+    .cta-inner{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+    .cta-inner h2{font-size:clamp(24px,3vw,38px);font-weight:800;letter-spacing:-.3px;margin-bottom:8px}
+    .cta-inner p{opacity:.85;font-size:15px;max-width:44ch;line-height:1.65}
+    .btn-white{background:#fff;color:var(--green);padding:15px 30px;border-radius:10px;font-weight:800;font-size:15px;white-space:nowrap;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 20px rgba(0,0,0,.15);display:inline-block}
+    .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
+    footer{background:var(--navy);color:rgba(255,255,255,.6);padding:40px 0 28px}
+    .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px}
+    .foot-powered{opacity:.35}.foot-powered a{color:inherit}
+    .ig-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.45);transition:border-color .2s,color .2s}
+    .ig-btn:hover{border-color:rgba(255,255,255,.5);color:#fff}
+    @media(max-width:900px){nav.links,.nav-cta{display:none}.ham{display:flex}.svc-row,.svc-row.flip{grid-template-columns:1fr;direction:ltr}.svc-photo{min-height:260px}}
+    @media(max-width:600px){.wrap{width:calc(100% - 32px)}.section{padding:56px 0}.svc-body{padding:28px 24px}.foot-bottom{flex-direction:column;text-align:center}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img src="assets/logo.png" alt="Soft Cleaning Services"/><span class="brand-name">Soft<em>Cleaning</em></span></a>
+    <nav class="links">
+      <a href="index.html">Home</a><a href="services.html" class="active">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </nav>
+    <a class="nav-cta" href="contact.html">Get a Free Quote</a>
+    <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a><a href="services.html" class="active">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="m-cta">Get a Free Quote</a>
+</div>
+
+<main>
+  <div class="page-hero">
+    <div class="wrap">
+      <h1>Our Services</h1>
+      <p>Every service follows the same detail-first checklist. Consistent results, every visit.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-label">What We Offer</div>
+      <h2 class="sec-title">Professional cleaning for every need.</h2>
+      <p class="sec-sub">From weekly maintenance to one-time deep cleans — choose what your space needs.</p>
+
+      <div class="svc-row">
+        <div class="svc-photo"><img src="assets/pablo/PHOTO-2026-04-01-19-14-15 2.jpg" alt="Residential cleaning" style="object-position:center 30%"/></div>
+        <div class="svc-body">
+          <div class="svc-tag">Most Popular</div>
+          <h3>Residential Cleaning</h3>
+          <p>Reliable recurring service — weekly or bi-weekly — so your home is always guest-ready without you lifting a finger.</p>
+          <ul class="svc-includes">
+            <li>Full kitchen clean — counters, sink, stovetop, appliances</li>
+            <li>Bathrooms scrubbed top to bottom</li>
+            <li>All rooms dusted, vacuumed, and mopped</li>
+            <li>Same checklist every visit, no guessing</li>
+          </ul>
+          <a class="btn-green" href="contact.html">Book Now →</a>
+        </div>
+      </div>
+
+      <div class="svc-row flip">
+        <div class="svc-photo"><img src="assets/pablo/PHOTO-2026-02-19-16-04-29 2.jpg" alt="Deep cleaning" style="object-position:center 30%"/></div>
+        <div class="svc-body">
+          <div class="svc-tag">Best for First Timers</div>
+          <h3>Deep Cleaning</h3>
+          <p>A top-to-bottom reset that covers every corner — perfect for first-time bookings or spaces that haven't been cleaned in a while.</p>
+          <ul class="svc-includes">
+            <li>Inside appliances — fridge, oven, microwave</li>
+            <li>Baseboards, doors, light switches, vents</li>
+            <li>Grout scrubbing, soap scum, hard water removal</li>
+            <li>Behind and under furniture</li>
+          </ul>
+          <a class="btn-green" href="contact.html">Book Now →</a>
+        </div>
+      </div>
+
+      <div class="svc-row">
+        <div class="svc-photo"><img src="assets/pablo/PHOTO-2026-04-01-19-10-54 2.jpg" alt="Move in move out" style="object-position:center 60%"/></div>
+        <div class="svc-body">
+          <div class="svc-tag">Move In / Move Out</div>
+          <h3>Move In / Move Out</h3>
+          <p>Inspection-ready results for landlords, buyers, and renters. We make sure the space is spotless before or after a move.</p>
+          <ul class="svc-includes">
+            <li>Full deep clean of all rooms</li>
+            <li>Inside cabinets, closets, and drawers</li>
+            <li>Walls spot-cleaned, fixtures polished</li>
+            <li>Fast turnaround available</li>
+          </ul>
+          <a class="btn-green" href="contact.html">Book Now →</a>
+        </div>
+      </div>
+
+      <div class="svc-row flip">
+        <div class="svc-photo"><img src="assets/pablo/PHOTO-2026-04-01-19-13-53 2.jpg" alt="Commercial cleaning" style="object-position:center top"/></div>
+        <div class="svc-body">
+          <div class="svc-tag">Commercial</div>
+          <h3>Commercial Cleaning</h3>
+          <p>Office and storefront cleaning on your schedule — early morning or after hours. Low disruption, high standard, consistent.</p>
+          <ul class="svc-includes">
+            <li>All surfaces dusted and sanitized</li>
+            <li>Floors vacuumed and mopped</li>
+            <li>Restrooms fully cleaned</li>
+            <li>Custom schedule available</li>
+          </ul>
+          <a class="btn-green" href="contact.html">Book Now →</a>
+        </div>
+      </div>
+
+      <div class="svc-row">
+        <div class="svc-photo"><img src="assets/pablo/PHOTO-2026-04-01-19-10-13.jpg" alt="Carpet and upholstery" style="object-position:center 20%"/></div>
+        <div class="svc-body">
+          <div class="svc-tag">Carpet &amp; Upholstery</div>
+          <h3>Carpet &amp; Upholstery</h3>
+          <p>Deep extraction cleaning removes embedded dirt, stains, and allergens from all carpet and fabric surfaces.</p>
+          <ul class="svc-includes">
+            <li>Hot water extraction or dry clean</li>
+            <li>Stain treatment and removal</li>
+            <li>Sofas, chairs, and area rugs</li>
+            <li>Pet odor and dander removal</li>
+          </ul>
+          <a class="btn-green" href="contact.html">Book Now →</a>
+        </div>
+      </div>
+
+      <div class="svc-row flip">
+        <div class="svc-photo"><img src="assets/pablo/PHOTO-2026-04-01-19-11-25 2.jpg" alt="Post-construction" style="object-position:center 40%"/></div>
+        <div class="svc-body">
+          <div class="svc-tag">Post-Construction</div>
+          <h3>Post-Construction</h3>
+          <p>Renovation dust and debris fully cleared so your newly renovated space is spotless and move-in ready from day one.</p>
+          <ul class="svc-includes">
+            <li>Fine dust removal from all surfaces</li>
+            <li>Windows, frames, and fixtures cleaned</li>
+            <li>Floors swept, vacuumed, and polished</li>
+            <li>Debris disposal included</li>
+          </ul>
+          <a class="btn-green" href="contact.html">Book Now →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section vid-bg">
+    <div class="wrap">
+      <div class="sec-label" style="color:rgba(47,181,80,.8)">See Us In Action</div>
+      <h2 class="sec-title" style="color:#fff">Watch the results happen.</h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,.45);margin-bottom:36px">Real jobs. Real transformations. No filters.</p>
+      <div class="vid-stage" id="vidStage">
+        <video src="assets/pablo/VIDEO-2026-04-01-19-19-08.mp4" muted loop playsinline class="active"></video>
+        <video src="assets/pablo/VIDEO-2026-04-01-19-19-17.mp4" muted loop playsinline></video>
+        <video src="assets/pablo/VIDEO-2026-02-19-15-51-56.mp4" muted loop playsinline></video>
+        <video src="assets/pablo/VIDEO-2026-03-03-12-12-01.mp4" muted loop playsinline></video>
+      </div>
+      <div class="vid-bars" id="vidBars">
+        <div class="vid-bar active"><div class="vid-bar-fill"></div></div>
+        <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+        <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+        <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="wrap cta-inner">
+      <div><h2>Not sure which service you need?</h2><p>Tell us about your space and we'll recommend the right service and get you a free quote.</p></div>
+      <a href="contact.html" class="btn-white">Get a Free Quote →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Soft Cleaning Services &nbsp;·&nbsp; <span class="foot-powered">Powered by <a href="https://fileflowco.com" target="_blank" rel="noopener">FileFlow</a></span></span>
+    <a href="https://www.instagram.com/softcleaningfl" target="_blank" rel="noopener" class="ig-btn" aria-label="Instagram">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+    </a>
+  </div>
+</footer>
+<script>
+  const ham=document.getElementById('ham'),mn=document.getElementById('mobileNav');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');mn.classList.toggle('open')});
+  (function(){
+    const videos=document.querySelectorAll('#vidStage video');
+    const bars=document.querySelectorAll('#vidBars .vid-bar');
+    const DUR=5000;let cur=0,timer;
+    function go(i){
+      videos[cur].classList.remove('active');videos[cur].pause();
+      bars[cur].classList.remove('active');
+      const f=bars[cur].querySelector('.vid-bar-fill');f.style.animation='none';f.offsetHeight;f.style.animation='';
+      cur=(i+videos.length)%videos.length;
+      videos[cur].classList.add('active');videos[cur].currentTime=0;videos[cur].play().catch(()=>{});
+      bars[cur].classList.add('active');bars[cur].style.setProperty('--d',DUR/1000+'s');
+      const nf=bars[cur].querySelector('.vid-bar-fill');nf.style.animation='none';nf.offsetHeight;nf.style.animation='';
+      clearInterval(timer);timer=setInterval(()=>go(cur+1),DUR);
+    }
+    bars.forEach((b,i)=>b.addEventListener('click',()=>go(i)));
+    bars[0].style.setProperty('--d',DUR/1000+'s');
+    videos[0].play().catch(()=>{});
+    timer=setInterval(()=>go(cur+1),DUR);
+  })();
+</script>
+</body>
+</html>
